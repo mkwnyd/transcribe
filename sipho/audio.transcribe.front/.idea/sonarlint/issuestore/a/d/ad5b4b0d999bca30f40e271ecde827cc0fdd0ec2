@@ -1,0 +1,7 @@
+
+wsquid:S00120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(îå³ş8‡™—¸Ö-
+}squid:S1450"\Remove the "filePathLabel" field and declare it as a local variable in the relevant methods.(°é°”úÿÿÿÿ8ÇÃÄ¸Ö-
+Fsquid:S1068"*Remove this unused "jFrame" private field.(ùÜ·–8ŒçÂÉÖ-
+~squid:S1450"]Remove the "convertAndSend" field and declare it as a local variable in the relevant methods.(òúÿ½üÿÿÿÿ8¯“¿åÖ-
+Ssquid:S1068"2Remove this unused "convertAndSend" private field.(òúÿ½üÿÿÿÿ8Ãš¾åÖ-
+Qsquid:S1948"0Make "convertAndSend" transient or serializable.(òúÿ½üÿÿÿÿ8ûÒåÇØ-
