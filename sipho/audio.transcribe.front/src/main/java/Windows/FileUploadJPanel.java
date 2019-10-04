@@ -1,12 +1,10 @@
 package Windows;
 
-import ServiceSend.ConvertAndSend;
-
+import ServiceSend.MP3Converter;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
 
 public class FileUploadJPanel extends JPanel implements ActionListener {
 
@@ -15,7 +13,7 @@ public class FileUploadJPanel extends JPanel implements ActionListener {
     private JTextField filePathField;
     private JLabel filePathLabel;
     private GridBagConstraints gbc = new GridBagConstraints();
-    private ConvertAndSend convertAndSend;
+    private MP3Converter mp3Converter = new MP3Converter();
 
     public FileUploadJPanel(FileUploadJFrame jFrame) {
 
@@ -72,8 +70,9 @@ public class FileUploadJPanel extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent actionEvent) {
         if (actionEvent.getSource() == sendButton) {
             String filePath = filePathField.getText();
-            File file = new File (filePath);
-            convertAndSend = new ConvertAndSend(file);
+            mp3Converter.convert(filePath);
         }
     }
+
+//    "/Users/hywel/Documents/home/pictures/Test.mp4"
 }
