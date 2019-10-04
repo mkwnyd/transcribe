@@ -8,6 +8,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 public class FileUploadJPanel extends JPanel implements ActionListener {
 
@@ -75,7 +76,7 @@ public class FileUploadJPanel extends JPanel implements ActionListener {
             String filePath = filePathField.getText();
             try {
                 serviceMP3Converter.sendValue(filePath);
-            } catch (JsonProcessingException e) {
+            } catch (IOException e) {
                 e.printStackTrace();
             }
         }
