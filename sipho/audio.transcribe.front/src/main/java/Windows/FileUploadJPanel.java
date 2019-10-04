@@ -1,6 +1,9 @@
 package Windows;
 
-import ServiceSend.MP3Converter;
+import ProviderSend.ProviderMP3Converter;
+import ServiceSend.ServiceMP3Converter;
+import com.fasterxml.jackson.core.JsonProcessingException;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -13,7 +16,7 @@ public class FileUploadJPanel extends JPanel implements ActionListener {
     private JTextField filePathField;
     private JLabel filePathLabel;
     private GridBagConstraints gbc = new GridBagConstraints();
-    private MP3Converter mp3Converter = new MP3Converter();
+    private ServiceMP3Converter serviceMP3Converter = new ServiceMP3Converter();
 
     public FileUploadJPanel(FileUploadJFrame jFrame) {
 
@@ -70,7 +73,11 @@ public class FileUploadJPanel extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent actionEvent) {
         if (actionEvent.getSource() == sendButton) {
             String filePath = filePathField.getText();
-            mp3Converter.convert(filePath);
+            try {
+                serviceMP3Converter.sendValue(filePath);
+            } catch (JsonProcessingException e) {
+                e.printStackTrace();
+            }
         }
     }
 
