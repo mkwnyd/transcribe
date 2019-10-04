@@ -1,7 +1,5 @@
 package ServiceSend;
 
-import org.apache.commons.lang3.StringUtils;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -29,7 +27,6 @@ public class MP3Converter {
             BufferedReader in = new BufferedReader(
                     new InputStreamReader(p.getErrorStream()));
             while ((line = in.readLine()) != null) {
-                System.out.println(line);
             }
             p.waitFor();
             System.out.println("Video converted successfully!");
@@ -45,7 +42,6 @@ public class MP3Converter {
         while (!character.equals('/')) {
             mp3File = mp3File.substring(0, mp3File.length()-2);
             character = new Character(mp3File.charAt(mp3File.length()-1));
-            System.out.println(character);
         }
         mp3File = mp3File+"Audio.mp3";
         return mp3File;
