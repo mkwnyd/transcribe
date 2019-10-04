@@ -1,6 +1,7 @@
-package ServiceSend;
+package ProviderSend;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.logging.Level;
@@ -12,11 +13,11 @@ import java.util.logging.Logger;
  *
  */
 
-public class MP3Converter {
+public class ProviderMP3Converter {
 
-    private static final Logger LOG = Logger.getLogger(MP3Converter.class.getName());
+    private static final Logger LOG = Logger.getLogger(ProviderMP3Converter.class.getName());
 
-    public void convert(String mp4File){
+    public File convert(String mp4File){
 
         try {
             String line;
@@ -31,10 +32,12 @@ public class MP3Converter {
             p.waitFor();
             System.out.println("Video converted successfully!");
             in.close();
+            File returnFile = new File (mp3File);
+            return returnFile;
         } catch (IOException | InterruptedException e) {
             LOG.log(Level.SEVERE, null, e);
         }
-
+        return null;
     }
 
     public String createMp3(String mp3File){
@@ -46,5 +49,7 @@ public class MP3Converter {
         mp3File = mp3File+"Audio.mp3";
         return mp3File;
     }
+
+
 
 }
