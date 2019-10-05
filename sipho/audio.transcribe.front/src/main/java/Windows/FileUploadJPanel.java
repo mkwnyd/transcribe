@@ -1,8 +1,6 @@
 package Windows;
 
-import ProviderSend.ProviderMP3Converter;
-import ServiceSend.ServiceMP3Converter;
-import com.fasterxml.jackson.core.JsonProcessingException;
+import services.ServiceMP3Converter;
 
 import javax.swing.*;
 import java.awt.*;

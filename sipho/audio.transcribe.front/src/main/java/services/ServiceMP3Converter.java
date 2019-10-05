@@ -1,12 +1,16 @@
-package ServiceSend;
+package services;
 
-import ProviderSend.ProviderMP3Converter;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import providers.ProviderMP3Converter;
 import models.Mp3Base64;
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Base64;
 
 public class ServiceMP3Converter {
@@ -31,7 +35,11 @@ public class ServiceMP3Converter {
         String encoded = Base64.getEncoder().encodeToString(bytes);
         Mp3Base64 mp3Base64 = new Mp3Base64();
         mp3Base64.setBase64(encoded);
-        LOGGER.info("Base64 code" + encoded);
+        providerMP3Converter.executePost("https://43w6pe3k11.execute-api.eu-west-1.amazonaws.com/prod/AudibleTranscribe",
+                mp3Base64);
 
     }
+
+
+
 }
